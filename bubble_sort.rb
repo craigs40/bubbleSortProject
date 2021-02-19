@@ -29,7 +29,7 @@ def bubble_sort_by(array)
   array
 end
 
-unsorted_strings = [%w'hi' ,'hello' ,'hey']
+unsorted_strings = ['hi','hello','hey']
 puts 'Unsorted-strings: ' + unsorted_strings.join(', ')
 result = bubble_sort_by(unsorted_strings) do |left,right|
   left.length - right.length
