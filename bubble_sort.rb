@@ -18,13 +18,13 @@ puts 'Sorted: ' + bubble_sort(unsorted_array).join(', ')
 def bubble_sort_by(array)
   sorted = false
   until sorted
-      sorted = true
-      (array.length - 1).times do |i|
-          if yield(array[i], array[i + 1]) > 0
-            array[i], array[i + 1] = array[i + 1], array[i]
-            sorted = false
-          end
-      end
+    sorted = true
+    (array.length - 1).times do |i|
+        if yield(array[i], array[i + 1]) > 0
+          array[i], array[i + 1] = array[i + 1], array[i]
+          sorted = false
+        end
+    end
   end
   array
 end  
