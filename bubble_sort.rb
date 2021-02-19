@@ -1,12 +1,17 @@
 def bubble_sort(arr)
-  a = arr.length
-  [0..a].each do
-    [x + 1..a - 1].each do
-      puts arr[x], arr[y] = arr[y], arr[x] unless arr[x] < arr[y]
+  swap = true
+  while swap
+    swap = false
+    arr.each_with_index.map do |x, y|
+      if y < (arr.count - 1) && arr[y] > arr[y + 1]
+        arr[y], arr[y + 1] = arr[y + 1], arr[y]
+        swap = true
+      end
     end
   end
+  arr
 end
-print bubble_sort([4, 3, 78, 2, 0, 2])
+print bubble_sort([4,3,78,2,0,2])
 
 def bubble_sort_by(arr)
   swap = true
