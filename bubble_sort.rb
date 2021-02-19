@@ -1,40 +1,38 @@
 def bubble_sort(array)
-  n = array.length
-  p "Array to sort = #{array}"
-  until n <= 1
-    newn = 0
-    array.each_with_index do |value, index|
-      if (array[index + 1]).is_a?(Integer)
-        if array[index] > array[index + 1] then array[index], array[index + 1] = array[index + 1], array[index]
-          newn = index + 1
-        end
-      end
-      n = newn
-    end
-  end
-  p "Sorted array = #{array}"
-  puts
-end
-
-array = [4,3,78,2,0,2]
-bubble_sort(array)
-
-def bubble_sort_by(arr)
-  swap = true
-  while swap == true
-    swap = false
-    (arr.length - 1).times do |x|
-      if yield(arr[x], arr[x + 1]).positive?
-        arr[x], arr[x + 1] = arr[x + 1], arr[x]
-        swap = true
-        break if swap == false
+  sorted = false
+  until sorted
+    sorted = true
+    (array.length - 1).times do |i|
+      if array[i + 1] < array[i]
+        array[i], array[i + 1] = array[i + 1], array[i]
+        sorted = false
       end
     end
-    break if not swap
   end
-  p arr
-  arr
+  array
 end
-bubble_sort_by(%w[hi hello hey]) do |x, y|
-  x.length - y.length
+unsorted_array = [10, 2, 8, 1, 0]
+puts 'Unsorted: ' + unsorted_array.join(', ')
+puts 'Sorted: ' + bubble_sort(unsorted_array).join(', ')
+
+def bubble_sort_by(array)
+  sorted = false
+  until sorted
+    sorted = true
+    (array.length - 1).times do |i|
+      if yield(array[i], array[i + 1]).positive?
+        array[i], array[i + 1] = array[i + 1], array[i]
+        sorted = false
+      end
+    end
+  end
+  array
 end
+
+unsorted_strings = %w[hi hello hey]
+puts 'Unsorted-strings: ' + unsorted_strings.join(', ')
+result = bubble_sort_by(unsorted_strings) do |left, right|
+  left.length - right.length
+end
+
+puts 'Sorted-strings: ' + result.join(', ')
