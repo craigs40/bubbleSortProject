@@ -17,7 +17,6 @@ def bubble_sort_by(arr)
         arr[x], arr[x + 1] = arr[x + 1], arr[x]
         swap = true
         break if swap == false
-      end
     end
   end
 end
