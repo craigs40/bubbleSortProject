@@ -13,14 +13,15 @@ def bubble_sort_by(arr)
   while swap == true
     swap = false
     (arr.length - 1).times do |x|
-      if yield (arr[x], arr[x + 1]) > 0
+      if yield(arr[x], arr[x + 1]) > 0
         arr[x], arr[x + 1] = arr[x + 1], arr[x]
         swap = true
         break if swap == false
       end
     end
   end
+  print arr
 end
-bubble_sort_by(%w[hi hello hey]) do |x, y|
+bubble_sort_by(["hi", "hello", "hey"]) do |x, y|
   x.length - y.length
 end
