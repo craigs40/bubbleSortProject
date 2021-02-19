@@ -20,20 +20,19 @@ def bubble_sort_by(array)
   until sorted
     sorted = true
     (array.length - 1).times do |i|
-      if yield(array[i], array[i + 1]) > 0
+      if yield(array[i], array[i + 1]).positive?
         array[i], array[i + 1] = array[i + 1], array[i]
         sorted = false
       end
     end
   end
   array
-end  
+end
 
-unsorted_strings = ['hi','hello','hey']
+unsorted_strings = [%w'hi','hello','hey']
 puts 'Unsorted-strings: ' + unsorted_strings.join(', ')
 result = bubble_sort_by(unsorted_strings) do |left,right|
   left.length - right.length
 end
 
 puts 'Sorted-strings: ' + result.join(', ')
-
