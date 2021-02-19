@@ -3,8 +3,7 @@ def bubble_sort(arr)
   [0..a].each do
     [x + 1..a - 1].each do
       puts arr[x], arr[y] = arr[y], arr[x] unless arr[x] < arr[y]
-      end
     end
   end
-  print arr
+end
 print bubble_sort([4, 3, 78, 2, 0, 2])
