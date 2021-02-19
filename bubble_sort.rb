@@ -12,8 +12,8 @@ def bubble_sort(array)
   array
 end
 unsorted_array = [10, 2, 8, 1, 0]
-puts "Unsorted: " + unsorted_array.join(", ")
-puts "Sorted: " + bubble_sort(unsorted_array).join(", ")
+puts 'Unsorted: ' + unsorted_array.join(', ')
+puts 'Sorted: ' + bubble_sort(unsorted_array).join(', ')
 
 def bubble_sort_by(array)
   sorted = false
@@ -29,11 +29,11 @@ def bubble_sort_by(array)
   array
 end  
 
-unsorted_strings = ["hi","hello","hey"]
-puts "Unsorted-strings: " + unsorted_strings.join(", ")
+unsorted_strings = ['hi','hello','hey']
+puts 'Unsorted-strings: ' + unsorted_strings.join(', ')
 result = bubble_sort_by(unsorted_strings) do |left,right|
   left.length - right.length
 end
 
-puts "Sorted-strings: " + result.join(", ")
+puts 'Sorted-strings: ' + result.join(', ')
 
