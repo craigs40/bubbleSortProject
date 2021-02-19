@@ -1,7 +1,7 @@
 def bubble_sort(arr)
   a = arr.length
-  for x in 0..a do
-    for y in x + 1..a - 1 do
+  [0..a].each do
+    [x + 1..a - 1].each do
       if arr[x] > arr[y]
         arr[x], arr[y] = arr[y], arr[x]
       end
