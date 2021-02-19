@@ -13,7 +13,7 @@ def bubble_sort_by(arr)
   while swap == true
     swap = false
     (arr.length - 1).times do |x|
-      if yield(arr[x], arr[x + 1]).positive?
+      next unless (arr[x], arr[x + 1]).positive?
         arr[x], arr[x + 1] = arr[x + 1], arr[x]
         swap = true
         break if swap == false
