@@ -20,10 +20,10 @@ def bubble_sort_by(array)
   until sorted
     sorted = true
     (array.length - 1).times do |i|
-        if yield(array[i], array[i + 1]) > 0
-          array[i], array[i + 1] = array[i + 1], array[i]
-          sorted = false
-        end
+      if yield(array[i], array[i + 1]) > 0
+        array[i], array[i + 1] = array[i + 1], array[i]
+        sorted = false
+      end
     end
   end
   array
